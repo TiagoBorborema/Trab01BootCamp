@@ -1,4 +1,4 @@
-package com.tiagoborborema.br.Trabalho01;
+package com.tiagoborborema.ti.trabalho01;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

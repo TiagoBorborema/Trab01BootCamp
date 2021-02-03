@@ -1,4 +1,4 @@
-package com.tiagoborborema.br.Trabalho01;
+package com.tiagoborborema.ti.trabalho01;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
