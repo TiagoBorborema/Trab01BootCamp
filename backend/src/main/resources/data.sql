@@ -4,6 +4,8 @@ insert into tb_client(name,cpf,income,birth_date,children)values('Marcio Mendes'
 insert into tb_client(name,cpf,income,birth_date,children)values('Adriana Santos','29374600123',2000.00,TIMESTAMP WITH TIME ZONE '1999-07-22T20:50:07.12345Z',0);
 insert into tb_client(name,cpf,income,birth_date,children)values('Rita de Cassia','24195874734',3400.00,TIMESTAMP WITH TIME ZONE '1991-01-15T20:50:07.12345Z',0);
 insert into tb_client(name,cpf,income,birth_date,children)values('Claudio Nandez','10274986854',7000.00,TIMESTAMP WITH TIME ZONE '1970-03-023T20:50:07.12345Z',2);
-insert into tb_client(name,cpf,income,birth_date,children)values('Tiago Borborema','75800155328',2500.00,TIMESTAMP WITH TIME ZONE '2001-05-30T20:50:07.12345Z',2);
-insert into tb_client(name,cpf,income,birth_date,children)values('Tiago Borborema','16258180365',8000.00,TIMESTAMP WITH TIME ZONE '1975-03-12T20:50:07.12345Z',1);
+insert into tb_client(name,cpf,income,birth_date,children)values('Antonio Carlos','75800155328',2500.00,TIMESTAMP WITH TIME ZONE '2001-05-30T20:50:07.12345Z',2);
+insert into tb_client(name,cpf,income,birth_date,children)values('André Macedo','38766153821',4000.00,TIMESTAMP WITH TIME ZONE '1975-03-12T20:50:07.12345Z',1);
+insert into tb_client(name,cpf,income,birth_date,children)values('Luiz Henrique','33845153700',2000.00,TIMESTAMP WITH TIME ZONE '1975-03-12T20:50:07.12345Z',1);
+insert into tb_client(name,cpf,income,birth_date,children)values('Juliana Moura','00922175190',3900.00,TIMESTAMP WITH TIME ZONE '1975-03-12T20:50:07.12345Z',1);
 commit;
