@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.tiagoborborema.ti.trabalho01.dto.ClientDTO;
 import com.tiagoborborema.ti.trabalho01.entities.Client;
 import com.tiagoborborema.ti.trabalho01.repositories.ClientRepository;
+import com.tiagoborborema.ti.trabalho01.services.exceptions.EntityNotFoundException;
 
 @Service
 public class ClientService {
@@ -35,12 +36,12 @@ public class ClientService {
 	@Transactional(readOnly=true)
 	public ClientDTO findById(Long id) {
 		Optional<Client> obj = repository.findById(id);
-		Client  entity =   obj.get(); //obj.orElseThrow(()-> new ResouserceNotFoundException("Client not found"));
+		Client  entity = obj.orElseThrow(()-> new EntityNotFoundException("Client not found"));
 		return new ClientDTO(entity);
 	}	
 	
 	@Transactional
-	public ClientDTO insert(ClientDTO dto) {
+	public ClientDTO insert(ClientDTO dto) {	
 		Client entity = new Client();
 		copyDtoToEntity(dto, entity);
 		entity = repository.save(entity);
