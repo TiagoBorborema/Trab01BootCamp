@@ -2,6 +2,8 @@ package com.tiagoborborema.ti.trabalho01.services;
 
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.tiagoborborema.ti.trabalho01.dto.ClientDTO;
 import com.tiagoborborema.ti.trabalho01.entities.Client;
 import com.tiagoborborema.ti.trabalho01.repositories.ClientRepository;
-import com.tiagoborborema.ti.trabalho01.services.exceptions.EntityNotFoundException;
+import com.tiagoborborema.ti.trabalho01.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ClientService {
@@ -36,7 +38,7 @@ public class ClientService {
 	@Transactional(readOnly=true)
 	public ClientDTO findById(Long id) {
 		Optional<Client> obj = repository.findById(id);
-		Client  entity = obj.orElseThrow(()-> new EntityNotFoundException("Client not found"));
+		Client  entity = obj.orElseThrow(()-> new ResourceNotFoundException("Client not found"));
 		return new ClientDTO(entity);
 	}	
 	
@@ -50,10 +52,17 @@ public class ClientService {
 	
 	@Transactional
 	public ClientDTO update(Long id, ClientDTO dto) {
-		Client entity = repository.getOne(id);
-		copyDtoToEntity(dto, entity);
-		entity = repository.save(entity);
-		return new ClientDTO(entity);
+		
+		try {
+			Client entity = repository.getOne(id);
+			copyDtoToEntity(dto, entity);
+			entity = repository.save(entity);
+			return new ClientDTO(entity);
+		}
+		
+		catch(EntityNotFoundException e){
+			throw new ResourceNotFoundException("Client not found");
+		}
 	}
 	
 	@Transactional
